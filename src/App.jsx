@@ -1,11 +1,12 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import imgs from './assets/images/Img-activity03.jpg'
-import './App.css'
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import imgs from './assets/images/Img-activity03.jpg';
+import './App.css';
+import { activityCards } from './data'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
@@ -18,7 +19,13 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
-      <img src={imgs} alt="" />
+      <div>
+        {activityCards.map((item, i) => {
+          return (
+            <img key={i} src={item.image} />
+          );
+        })}
+      </div>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
@@ -34,4 +41,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
